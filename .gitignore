@@ -2,10 +2,7 @@
 __pycache__/
 *.pyc
 
-# PyInstaller 生成的文件夹
-build/
-dist/
-*.spec
+
 
 # 操作系统文件
 .DS_Store

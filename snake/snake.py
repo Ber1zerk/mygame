@@ -1,5 +1,19 @@
-import os
 import sys
+import os
+
+def get_resource_path(relative_path):
+    """ 获取资源的绝对路径，兼容开发环境和打包后的 exe """
+    if hasattr(sys, '_MEIPASS'):
+        # PyInstaller 创建的环境
+        base_path = sys._MEIPASS
+    else:
+        # 正常开发环境
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+# 使用示例：
+# 原来：img = pygame.image.load('head.png')
+# 改为：img = pygame.image.load(get_resource_path('head.png'))import os
 import time
 import random
 import msvcrt  # 仅适用于 Windows
